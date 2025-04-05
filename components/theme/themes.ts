@@ -1,19 +1,38 @@
 import { Theme } from './types';
 
-// Tema claro
+// Función auxiliar para convertir HEX a RGB
+function hexToRgb(hex: string): string {
+  // Eliminar # si existe
+  hex = hex.replace('#', '');
+
+  // Convertir a valores RGB
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
+
+  return `${r} ${g} ${b}`;
+}
+
+// Tema claro actualizado con la nueva paleta de colores
 export const lightTheme: Theme = {
   name: 'light',
   colors: {
-    primary: '59 130 246', // blue-500
-    primaryContrast: '255 255 255', // white
-    secondary: '79 70 229', // indigo-600
-    secondaryContrast: '255 255 255', // white
-    accent: '236 72 153', // pink-500
-    accentContrast: '255 255 255', // white
-    background: '249 250 251', // gray-50
-    text: '17 24 39', // gray-900
-    textMuted: '107 114 128', // gray-500
-    border: '229 231 235', // gray-200
+    primary: hexToRgb('#0BB589'), // Primary - Verde
+    primaryContrast: hexToRgb('#FFFFFF'), // White
+    secondary: hexToRgb('#EF844C'), // Secondary - Naranja
+    secondaryContrast: hexToRgb('#FFFFFF'), // White
+    accent: hexToRgb('#00CFE8'), // Info - Azul claro
+    accentContrast: hexToRgb('#FFFFFF'), // White
+    background: hexToRgb('#F7FBFC'), // Background - Blanco hueso
+    text: hexToRgb('#5C605E'), // Text - Gris oscuro
+    textMuted: hexToRgb('#82868B'), // Secondary Text - Gris medio
+    border: hexToRgb('#E0E4E5'), // Disabled - Gris claro
+    error: hexToRgb('#B12B2C'), // Error - Rojo
+    success: hexToRgb('#219653'), // Success - Verde
+    card: hexToRgb('#F7F9FD'), // Card - Blanco azulado
+    progress: hexToRgb('#E0E4E5'), // Progress - Mismo que disabled
+    input: hexToRgb('#EFEFEF'), // Input Text - Gris muy claro
+    overlay: hexToRgb('#696969'), // Overlay - Gris 24% opacidad
   },
 };
 
@@ -21,16 +40,22 @@ export const lightTheme: Theme = {
 export const darkTheme: Theme = {
   name: 'dark',
   colors: {
-    primary: '96 165 250', // blue-400
-    primaryContrast: '30 41 59', // slate-800
-    secondary: '129 140 248', // indigo-400
-    secondaryContrast: '30 41 59', // slate-800
-    accent: '244 114 182', // pink-400
-    accentContrast: '30 41 59', // slate-800
-    background: '15 23 42', // slate-900
-    text: '248 250 252', // slate-50
-    textMuted: '148 163 184', // slate-400
-    border: '51 65 85', // slate-700
+    primary: hexToRgb('#0BB589'), // Mantenemos el verde como primario
+    primaryContrast: hexToRgb('#000000'), // Negro para contraste
+    secondary: hexToRgb('#EF844C'), // Naranja secundario
+    secondaryContrast: hexToRgb('#000000'), // Negro para contraste
+    accent: hexToRgb('#00CFE8'), // Acento azul
+    accentContrast: hexToRgb('#000000'), // Negro para contraste
+    background: hexToRgb('#000000'), // Negro para fondo
+    text: hexToRgb('#FFFFFF'), // Blanco para texto
+    textMuted: hexToRgb('#82868B'), // Gris para texto secundario
+    border: hexToRgb('#5C605E'), // Bordes más oscuros
+    error: hexToRgb('#B12B2C'), // Error - Rojo
+    success: hexToRgb('#219653'), // Success - Verde
+    card: hexToRgb('#1E1E1E'), // Tarjetas oscuras
+    progress: hexToRgb('#5C605E'), // Progreso oscuro
+    input: hexToRgb('#2D2D2D'), // Inputs oscuros
+    overlay: hexToRgb('#696969'), // Overlay - Gris
   },
 };
 
@@ -38,16 +63,22 @@ export const darkTheme: Theme = {
 export const sepiaTheme: Theme = {
   name: 'sepia',
   colors: {
-    primary: '180 83 9', // amber-800
-    primaryContrast: '255 251 235', // amber-50
-    secondary: '133 77 14', // yellow-800
-    secondaryContrast: '255 251 235', // amber-50
-    accent: '146 64 14', // amber-700
-    accentContrast: '255 251 235', // amber-50
-    background: '254 243 199', // amber-100
-    text: '120 53 15', // amber-900
-    textMuted: '146 64 14', // amber-700
-    border: '252 211 77', // amber-300
+    primary: hexToRgb('#0BB589'), // Mantenemos el verde primario
+    primaryContrast: hexToRgb('#FFF8E1'), // Sepia claro
+    secondary: hexToRgb('#EF844C'), // Naranja secundario
+    secondaryContrast: hexToRgb('#FFF8E1'), // Sepia claro
+    accent: hexToRgb('#00CFE8'), // Acento azul
+    accentContrast: hexToRgb('#FFF8E1'), // Sepia claro
+    background: hexToRgb('#FFF8E1'), // Fondo sepia claro
+    text: hexToRgb('#5C605E'), // Texto oscuro
+    textMuted: hexToRgb('#82868B'), // Texto secundario
+    border: hexToRgb('#E6DFC8'), // Bordes sepia
+    error: hexToRgb('#B12B2C'), // Error - Rojo
+    success: hexToRgb('#219653'), // Success - Verde
+    card: hexToRgb('#FFF8E1'), // Tarjetas sepia
+    progress: hexToRgb('#E6DFC8'), // Progreso sepia
+    input: hexToRgb('#F5EFD9'), // Inputs sepia
+    overlay: hexToRgb('#696969'), // Overlay - Gris
   },
 };
 

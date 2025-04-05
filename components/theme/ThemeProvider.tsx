@@ -40,6 +40,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         '--color-text': theme.colors.text,
         '--color-text-muted': theme.colors.textMuted,
         '--color-border': theme.colors.border,
+        '--color-error': theme.colors.error,
+        '--color-success': theme.colors.success,
+        '--color-card': theme.colors.card,
+        '--color-progress': theme.colors.progress,
+        '--color-input': theme.colors.input,
+        '--color-overlay': theme.colors.overlay,
       } as any,
     });
 

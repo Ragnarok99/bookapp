@@ -9,6 +9,12 @@ export type ThemeColors = {
   text: string;
   textMuted: string;
   border: string;
+  error: string;
+  success: string;
+  card: string;
+  progress: string;
+  input: string;
+  overlay: string;
 };
 
 export type Theme = {

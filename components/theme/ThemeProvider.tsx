@@ -1,0 +1,61 @@
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { StyleSheet, useColorScheme } from 'react-native';
+import { Theme, ThemeContextType } from './types';
+import { allThemes, darkTheme, lightTheme } from './themes';
+
+const ThemeContext = createContext<ThemeContextType>({
+  theme: lightTheme,
+  setTheme: () => {},
+  availableThemes: allThemes,
+});
+
+export const useTheme = () => useContext(ThemeContext);
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const colorScheme = useColorScheme();
+  const [theme, setTheme] = useState<Theme>(
+    colorScheme === 'dark' ? darkTheme : lightTheme
+  );
+
+  // Actualiza el tema cuando cambie el modo del sistema
+  useEffect(() => {
+    if (colorScheme === 'dark') {
+      setTheme(darkTheme);
+    } else {
+      setTheme(lightTheme);
+    }
+  }, [colorScheme]);
+
+  // Aplica las variables CSS para NativeWind
+  useEffect(() => {
+    const style = StyleSheet.create({
+      root: {
+        '--color-primary': theme.colors.primary,
+        '--color-primary-contrast': theme.colors.primaryContrast,
+        '--color-secondary': theme.colors.secondary,
+        '--color-secondary-contrast': theme.colors.secondaryContrast,
+        '--color-accent': theme.colors.accent,
+        '--color-accent-contrast': theme.colors.accentContrast,
+        '--color-background': theme.colors.background,
+        '--color-text': theme.colors.text,
+        '--color-text-muted': theme.colors.textMuted,
+        '--color-border': theme.colors.border,
+      } as any,
+    });
+
+    // @ts-ignore - NativeWind actualiza estas variables globalmente
+    global.nativewind = {
+      addLocalStyles: () => style.root,
+    };
+  }, [theme]);
+
+  const value = {
+    theme,
+    setTheme,
+    availableThemes: allThemes,
+  };
+
+  return (
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+  );
+}

@@ -1,42 +1,73 @@
 import { Tabs } from 'expo-router';
-import { Book, Chrome as Home, Library, User } from 'lucide-react-native';
+import {
+  Book,
+  Chrome as Home,
+  Library,
+  User,
+  Settings,
+} from 'lucide-react-native';
 import { StyleSheet } from 'react-native';
+import { useTheme } from '@/components/theme/ThemeProvider';
 
 export default function TabLayout() {
+  const { theme } = useTheme();
+
+  // Convertir RGB a formato hexadecimal para los colores de las pestañas
+  const primaryColor = `rgb(${theme.colors.primary})`;
+  const textMutedColor = `rgb(${theme.colors.textMuted})`;
+  const borderColor = `rgb(${theme.colors.border})`;
+  const backgroundColor = `rgb(${theme.colors.background})`;
+
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarStyle: styles.tabBar,
-        tabBarActiveTintColor: '#6366f1',
-        tabBarInactiveTintColor: '#94a3b8',
-      }}>
+        tabBarStyle: {
+          ...styles.tabBar,
+          backgroundColor: backgroundColor,
+          borderTopColor: borderColor,
+        },
+        tabBarActiveTintColor: primaryColor,
+        tabBarInactiveTintColor: textMutedColor,
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: 'Inicio',
           tabBarIcon: ({ color, size }) => <Home size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="library"
         options={{
-          title: 'Library',
-          tabBarIcon: ({ color, size }) => <Library size={size} color={color} />,
+          title: 'Biblioteca',
+          tabBarIcon: ({ color, size }) => (
+            <Library size={size} color={color} />
+          ),
         }}
       />
       <Tabs.Screen
         name="reading"
         options={{
-          title: 'Reading',
+          title: 'Lectura',
           tabBarIcon: ({ color, size }) => <Book size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
-          title: 'Profile',
+          title: 'Perfil',
           tabBarIcon: ({ color, size }) => <User size={size} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="config"
+        options={{
+          title: 'Ajustes',
+          tabBarIcon: ({ color, size }) => (
+            <Settings size={size} color={color} />
+          ),
         }}
       />
     </Tabs>
@@ -45,9 +76,7 @@ export default function TabLayout() {
 
 const styles = StyleSheet.create({
   tabBar: {
-    backgroundColor: '#ffffff',
     borderTopWidth: 1,
-    borderTopColor: '#e2e8f0',
     paddingBottom: 8,
     paddingTop: 8,
     height: 60,

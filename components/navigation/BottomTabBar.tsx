@@ -67,9 +67,8 @@ export function BottomTabBar({
 
                 {/* Texto debajo del ícono */}
                 <P3
-                  className={`mt-0.5 ${
-                    isActive ? 'text-primary' : 'text-text-muted'
-                  }`}
+                  className="mt-0.5"
+                  color={isActive ? 'primary' : 'muted'}
                   weight={isActive ? 'medium' : 'regular'}
                 >
                   {tab.label}

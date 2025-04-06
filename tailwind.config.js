@@ -56,5 +56,29 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // Definimos valores por defecto para las variables CSS
+    function ({ addBase }) {
+      addBase({
+        ':root': {
+          '--color-primary': '11 181 137', // Verde #0BB589
+          '--color-primary-contrast': '255 255 255',
+          '--color-secondary': '239 132 76', // Naranja #EF844C
+          '--color-secondary-contrast': '255 255 255',
+          '--color-accent': '0 207 232', // Azul #00CFE8
+          '--color-accent-contrast': '255 255 255',
+          '--color-background': '247 251 252', // #F7FBFC
+          '--color-text': '92 96 94', // #5C605E
+          '--color-text-muted': '130 134 139', // #82868B
+          '--color-border': '224 228 229', // #E0E4E5
+          '--color-error': '177 43 44', // #B12B2C
+          '--color-success': '33 150 83', // #219653
+          '--color-card': '247 249 253', // #F7F9FD
+          '--color-progress': '224 228 229', // #E0E4E5
+          '--color-input': '239 239 239', // #EFEFEF
+          '--color-overlay': '105 105 105', // #696969
+        },
+      });
+    },
+  ],
 };

@@ -72,9 +72,9 @@ export function RoadmapBanner({ onPress, className = '' }: RoadmapBannerProps) {
 
           {/* Persona en el cohete */}
           <View className="w-12 h-12 absolute right-2 bottom-4 z-20">
-            <View className="w-6 h-6 bg-primary-contrast rounded-full absolute bottom-2 left-0" />{' '}
+            <View className="w-6 h-6 bg-primary-contrast rounded-full absolute bottom-2 left-0" />
             {/* Cabeza */}
-            <View className="w-8 h-10 bg-primary absolute bottom-0 left-2 rounded-t-lg" />{' '}
+            <View className="w-8 h-10 bg-primary absolute bottom-0 left-2 rounded-t-lg" />
             {/* Cuerpo */}
           </View>
 

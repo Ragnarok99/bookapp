@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, ScrollView } from 'react-native';
-import { H2, P2 } from '@/components/typography';
+import { H2, P2, Text } from '@/components/typography';
 import { BookCard } from './BookCard';
 import { CategoryTabs, Category } from './CategoryTabs';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -54,10 +54,12 @@ export function BookSection({
     <View className={`${className}`}>
       {/* Encabezado con título y botón "See more" */}
       <View className="flex-row justify-between items-center mb-4 px-4">
-        <H2>{title}</H2>
+        <Text variant="h2">{title}</Text>
 
         <TouchableOpacity onPress={onSeeMorePress} activeOpacity={0.7}>
-          <P2 color="primary">See more</P2>
+          <Text variant="p2" color="primary">
+            See more
+          </Text>
         </TouchableOpacity>
       </View>
 

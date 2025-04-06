@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, ScrollView } from 'react-native';
-import { P2 } from '@/components/typography';
+import { P2, Text } from '@/components/typography';
 import { useTheme } from '@/components/theme/ThemeProvider';
 
 export interface Category {
@@ -42,13 +42,14 @@ export function CategoryTabs({
               className="mr-4"
             >
               <View className="flex items-center">
-                <P2
+                <Text
+                  variant="p2"
                   weight={isSelected ? 'bold' : 'regular'}
                   color={isSelected ? 'primary' : 'default'}
                   className="pb-1"
                 >
                   {category.name}
-                </P2>
+                </Text>
 
                 {/* Indicador de selección */}
                 {isSelected && (

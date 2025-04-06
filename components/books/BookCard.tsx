@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Image, TouchableOpacity } from 'react-native';
-import { P2, P3 } from '@/components/typography';
+import { P2, P3, Text } from '@/components/typography';
 
 interface BookCardProps {
   id: string | number;
@@ -30,9 +30,9 @@ export function BookCard({
           resizeMode="cover"
         />
       </View>
-      <P2 weight="medium" numberOfLines={2} className="h-12">
+      <Text variant="p2" weight="medium" numberOfLines={2} className="h-12">
         {title}
-      </P2>
+      </Text>
     </TouchableOpacity>
   );
 }

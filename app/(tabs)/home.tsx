@@ -6,9 +6,9 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import { H1, H2, P1, P2, Text } from '@/components/typography';
+import { H2, P1, P2 } from '@/components/typography';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { ArrowRight } from 'lucide-react-native';
+import { RoadmapBanner } from '@/components/banners';
 
 export default function HomeScreen() {
   const { theme } = useTheme();
@@ -17,33 +17,9 @@ export default function HomeScreen() {
   return (
     <SafeAreaView className="flex-1 bg-background">
       <ScrollView className="flex-1">
-        {/* Header */}
-        <View className="bg-primary p-6 pt-6 pb-8 rounded-b-3xl">
-          <Text variant="h1" className="text-primary-contrast mb-2">
-            ¡Hola, Estudiante!
-          </Text>
-          <Text variant="p1" className="text-primary-contrast">
-            Bienvenido a tu aplicación de estudio
-          </Text>
-        </View>
-
-        {/* Progreso diario */}
-        <View className="mx-4 -mt-4 bg-card p-4 rounded-xl shadow-sm border border-border">
-          <View className="flex-row justify-between items-center mb-2">
-            <H2>Tu progreso</H2>
-            <TouchableOpacity>
-              <ArrowRight size={20} color={primaryColor} />
-            </TouchableOpacity>
-          </View>
-
-          <View className="h-4 bg-progress rounded-full w-full mb-2">
-            <View
-              className="h-4 bg-primary rounded-full"
-              style={{ width: '65%' }}
-            />
-          </View>
-
-          <P2 color="muted">Has completado el 65% de tu meta diaria</P2>
+        {/* Banner de Roadmap */}
+        <View className="px-4 mt-4 mb-2">
+          <RoadmapBanner />
         </View>
 
         {/* Próxima sesión */}

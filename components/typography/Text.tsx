@@ -1,6 +1,15 @@
 import React, { ReactNode } from 'react';
 import { Text as RNText, TextProps as RNTextProps } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
+
+export type TextVariant =
+  | 'default'
+  | 'muted'
+  | 'primary'
+  | 'secondary'
+  | 'accent'
+  | 'error'
+  | 'success'
+  | 'white';
 
 export interface TextProps extends RNTextProps {
   children: ReactNode;
@@ -14,14 +23,7 @@ export interface TextProps extends RNTextProps {
     | 'h4'
     | 'label1'
     | 'label2';
-  color?:
-    | 'default'
-    | 'muted'
-    | 'primary'
-    | 'secondary'
-    | 'accent'
-    | 'error'
-    | 'success';
+  color?: TextVariant;
   weight?: 'extrabold' | 'bold' | 'semibold' | 'medium' | 'regular' | 'light';
   className?: string;
 }
@@ -35,8 +37,6 @@ export function Text({
   style,
   ...props
 }: TextProps) {
-  const { theme } = useTheme();
-
   // Determinar clases de tailwind para la variante
   let variantClasses = '';
 
@@ -131,6 +131,9 @@ export function Text({
       break;
     case 'success':
       colorClasses = 'text-success';
+      break;
+    case 'white':
+      colorClasses = 'text-white';
       break;
   }
 

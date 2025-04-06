@@ -2,6 +2,7 @@ import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { H1, P1 } from '@/components/typography';
 import { BookProgressCard } from '@/components/books';
+import { Button } from '@/components/ui';
 
 export default function RoadmapScreen() {
   return (
@@ -33,6 +34,15 @@ export default function RoadmapScreen() {
           onPress={() => console.log('Libro seleccionado')}
           className="mb-4"
         />
+        <Button variant="filled" className="w-full">
+          Ver más
+        </Button>
+        <Button variant="outlined" className="w-full">
+          Ver más
+        </Button>
+        <Button variant="text" className="w-full">
+          Ver más
+        </Button>
       </View>
     </SafeAreaView>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { H1, P1 } from '@/components/typography';
+import { BookProgressCard } from '@/components/books';
 
 export default function RoadmapScreen() {
   return (
@@ -10,6 +11,28 @@ export default function RoadmapScreen() {
           Roadmap
         </H1>
         <P1>Aquí podrás ver tu plan de aprendizaje.</P1>
+        <BookProgressCard
+          isActive
+          title="The Little Prince"
+          author="Antoine de Saint"
+          coverImage="https://m.media-amazon.com/images/I/71OZY035QKL._AC_UF1000,1000_QL80_.jpg"
+          currentPage={52}
+          totalPages={267}
+          progress={50}
+          onPress={() => console.log('Libro seleccionado')}
+          className="mb-4"
+        />
+        <BookProgressCard
+          isActive={false}
+          title="The Little Prince"
+          author="Antoine de Saint"
+          coverImage="https://m.media-amazon.com/images/I/71OZY035QKL._AC_UF1000,1000_QL80_.jpg"
+          currentPage={52}
+          totalPages={267}
+          progress={50}
+          onPress={() => console.log('Libro seleccionado')}
+          className="mb-4"
+        />
       </View>
     </SafeAreaView>
   );

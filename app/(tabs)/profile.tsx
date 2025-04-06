@@ -1,6 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { H1, P1 } from '@/components/typography';
+import TextFieldShowcase from '../textfield-showcase';
 
 export default function ProfileScreen() {
   return (
@@ -10,6 +11,7 @@ export default function ProfileScreen() {
           Profile
         </H1>
         <P1>Aquí podrás ver y gestionar tu perfil.</P1>
+        <TextFieldShowcase />
       </View>
     </SafeAreaView>
   );

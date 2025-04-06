@@ -104,7 +104,9 @@ export function Button({
       ) : (
         <View className="flex-row items-center justify-center">
           {leftIcon && <View className="mr-2">{leftIcon}</View>}
-          <Text color={color}>{children}sawdq</Text>
+          <Text weight="medium" color={color}>
+            {children}
+          </Text>
           {rightIcon && <View className="ml-2">{rightIcon}</View>}
         </View>
       )}

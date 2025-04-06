@@ -3,6 +3,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { ChevronRight } from 'lucide-react-native';
 import { BookProgress } from './BookProgress';
+import { H1, H3, H4, P1, P2, P3 } from '../typography';
 
 interface BookProgressCardProps {
   title: string;
@@ -30,12 +31,11 @@ export function BookProgressCard({
   const { theme } = useTheme();
 
   // Diferentes estilos según el estado activo/inactivo
-  const bgColor = isActive ? 'bg-primary/10' : 'bg-white';
+  const bgColor = isActive ? 'bg-primary' : 'bg-white';
   const borderColor = isActive ? '' : 'border border-gray-200';
-  const textColor = isActive ? 'text-primary' : 'text-gray-800';
-  const mutedTextColor = isActive ? 'text-primary/70' : 'text-gray-500';
-  const progressBgColor = isActive ? 'bg-primary/20' : 'bg-gray-200';
-  const progressFillColor = isActive ? 'bg-primary' : 'bg-orange-400';
+  const textColor = isActive ? 'text-white' : 'text-gray-600';
+  const progressBgColor = isActive ? 'bg-primary/30' : 'bg-gray-200';
+  const progressFillColor = isActive ? 'bg-white' : 'bg-orange-400';
 
   return (
     <TouchableOpacity
@@ -47,31 +47,34 @@ export function BookProgressCard({
         {/* Portada del libro */}
         <Image
           source={{ uri: coverImage }}
-          className="w-[72px] h-[100px] rounded-md mr-4"
+          className="w-[72px] h-[90px] rounded-md mr-4"
           resizeMode="cover"
         />
 
         {/* Información del libro */}
-        <View className="flex-1 justify-between h-[100px] py-1">
+        <View className="flex-1 justify-between h-[90px] py-0.5">
           <View>
             <Text
-              className={`${textColor} font-semibold text-lg mb-1`}
-              numberOfLines={1}
+              className={`${textColor} mb-1 capitalize font-regular text-xl`}
             >
               {title}
             </Text>
-            <Text className={`${mutedTextColor} text-sm`} numberOfLines={1}>
+            <P1
+              color="muted"
+              className={`${textColor} text-sm`}
+              numberOfLines={1}
+            >
               by {author}
-            </Text>
+            </P1>
           </View>
 
           {/* Progreso de páginas */}
-          <View className="flex-row items-center justify-between">
-            <Text className={`${textColor} text-sm`}>
+          <View className="flex-column items-start justify-between">
+            <Text className={`${textColor} text-sm mb-1 font-regular`}>
               Page {currentPage} of {totalPages}
             </Text>
             <View
-              className={`w-32 h-1 ${progressBgColor} rounded-full overflow-hidden`}
+              className={`w-full h-2 ${progressBgColor} rounded-full overflow-hidden`}
             >
               <View
                 className={`h-full ${progressFillColor} rounded-full`}

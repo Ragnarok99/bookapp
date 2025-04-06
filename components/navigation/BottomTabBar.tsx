@@ -36,7 +36,10 @@ export function BottomTabBar({
   return (
     <View className="relative w-full">
       {/* Fondo de la barra con sombra y bordes redondeados */}
-      <View className="absolute bottom-0 w-full bg-background rounded-t-3xl pb-4 pt-3 px-4 shadow-lg border-t border-border">
+      <View
+        style={styles.tabBarContainer}
+        className="absolute bottom-0 w-full bg-white rounded-t-3xl pb-4 pt-3 shadow-lg z-50"
+      >
         <View className="flex-row justify-around items-center">
           {tabs.map((tab) => {
             const isActive = tab.key === activeTab;
@@ -45,22 +48,26 @@ export function BottomTabBar({
             return (
               <TouchableOpacity
                 key={tab.key}
-                className={`items-center py-1 px-2 ${
-                  isActive ? 'relative' : ''
-                }`}
+                className="items-center py-1 px-2"
                 onPress={() => onTabPress(tab)}
                 activeOpacity={0.7}
               >
-                {/* Ícono con color según estado activo/inactivo */}
-                <IconComponent
-                  size={24}
-                  color={isActive ? primaryColor : inactiveColor}
-                  strokeWidth={isActive ? 2 : 1.5}
-                />
+                {/* Contenedor del icono activo */}
+                <View
+                  style={isActive ? styles.activeIconContainer : null}
+                  className={isActive ? 'bg-white rounded-full p-2' : 'p-2'}
+                >
+                  {/* Ícono con color según estado activo/inactivo */}
+                  <IconComponent
+                    size={22}
+                    color={isActive ? primaryColor : inactiveColor}
+                    strokeWidth={isActive ? 2.5 : 1.5}
+                  />
+                </View>
 
                 {/* Texto debajo del ícono */}
                 <P3
-                  className={`mt-1 ${
+                  className={`mt-0.5 ${
                     isActive ? 'text-primary' : 'text-text-muted'
                   }`}
                   weight={isActive ? 'medium' : 'regular'}
@@ -75,6 +82,34 @@ export function BottomTabBar({
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  tabBarContainer: {
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: -2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 8,
+    zIndex: 50,
+  },
+  activeIconContainer: {
+    backgroundColor: 'white',
+    borderRadius: 30,
+    shadowColor: 'rgb(0, 184, 124)',
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 5,
+  },
+});
 
 // Tabs predefinidos para la navegación principal
 export const defaultTabs: TabItem[] = [

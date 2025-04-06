@@ -40,10 +40,13 @@ export function TabBarContainer({
   return (
     <View className="flex-1 bg-background">
       {/* Contenido principal */}
-      <View className="flex-1 pb-20">{children}</View>
+      <View className="flex-1 pb-24">{children}</View>
 
       {/* Barra de navegación inferior */}
-      <View className="absolute bottom-0 left-0 right-0">
+      <View
+        style={styles.navigationContainer}
+        className="absolute bottom-0 left-0 right-0 z-50"
+      >
         <BottomTabBar
           tabs={tabs}
           activeTab={activeTab}
@@ -51,8 +54,22 @@ export function TabBarContainer({
         />
 
         {/* Área segura para dispositivos iOS con notch */}
-        {Platform.OS === 'ios' && <View className="h-6 bg-background" />}
+        {Platform.OS === 'ios' && <View className="h-6 bg-white" />}
       </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  navigationContainer: {
+    zIndex: 50,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: -2,
+    },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+});

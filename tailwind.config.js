@@ -30,6 +30,30 @@ module.exports = {
         input: 'rgb(var(--color-input) / <alpha-value>)',
         overlay: 'rgb(var(--color-overlay) / <alpha-value>)',
       },
+      fontFamily: {
+        'montserrat-extrabold': ['Montserrat_800ExtraBold'],
+        'montserrat-bold': ['Montserrat_700Bold'],
+        'montserrat-semibold': ['Montserrat_600SemiBold'],
+        'montserrat-medium': ['Montserrat_500Medium'],
+        'montserrat-regular': ['Montserrat_400Regular'],
+        'montserrat-light': ['Montserrat_300Light'],
+      },
+      fontSize: {
+        // Párrafos
+        p1: ['16px', { lineHeight: '24px' }],
+        p2: ['14px', { lineHeight: '20px' }],
+        p3: ['12px', { lineHeight: '20px' }],
+
+        // Encabezados
+        h1: ['32px', { lineHeight: '38px' }],
+        h2: ['24px', { lineHeight: '28px' }],
+        h3: ['20px', { lineHeight: '24px' }],
+        h4: ['18px', { lineHeight: '22px' }],
+
+        // Etiquetas
+        label1: ['16px', { lineHeight: '24px' }],
+        label2: ['14px', { lineHeight: '20px' }],
+      },
     },
   },
   plugins: [],

@@ -5,6 +5,7 @@ import {
   Library,
   User,
   Settings,
+  Type,
 } from 'lucide-react-native';
 import { StyleSheet } from 'react-native';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -59,6 +60,13 @@ export default function TabLayout() {
         options={{
           title: 'Perfil',
           tabBarIcon: ({ color, size }) => <User size={size} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="typography"
+        options={{
+          title: 'Tipografía',
+          tabBarIcon: ({ color, size }) => <Type size={size} color={color} />,
         }}
       />
       <Tabs.Screen

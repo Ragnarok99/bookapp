@@ -34,14 +34,18 @@ export function BookProgressCard({
   const bgColor = isActive ? 'bg-primary' : 'bg-white';
   const borderColor = isActive ? '' : 'border border-gray-200';
   const textColor = isActive ? 'text-white' : 'text-gray-600';
-  const progressBgColor = isActive ? 'bg-primary/30' : 'bg-gray-200';
+  const progressBgColor = isActive ? 'bg-green-100/40' : 'bg-gray-200';
   const progressFillColor = isActive ? 'bg-white' : 'bg-orange-400';
+
+  const containerClasses = isActive
+    ? 'bg-primary rounded-xl'
+    : 'bg-white border border-gray-200 rounded-xl';
 
   return (
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={0.8}
-      className={`w-full rounded-xl ${bgColor} ${borderColor} overflow-hidden ${className}`}
+      className={`w-full ${containerClasses} overflow-hidden ${className}`}
     >
       <View className="flex-row p-4 items-center">
         {/* Portada del libro */}

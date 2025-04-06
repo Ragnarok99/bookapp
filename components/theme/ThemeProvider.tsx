@@ -28,6 +28,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [colorScheme]);
 
   // Aplica las variables CSS para NativeWind usando vars()
+  // Estas variables deben estar en formato RGB para que funcionen los modificadores de opacidad
   const themeVars = vars({
     '--color-primary': theme.colors.primary,
     '--color-primary-contrast': theme.colors.primaryContrast,

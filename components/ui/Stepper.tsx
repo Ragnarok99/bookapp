@@ -41,8 +41,25 @@ export function Stepper({ steps, currentStep, className = '' }: StepperProps) {
         {/* Círculos de los pasos */}
         <View className="w-full flex-row justify-between z-10">
           {steps.map((_, index) => {
-            // Estado inicial: solo el primer círculo es verde
-            const isFirstStep = index === 0;
+            // Determinar el estado de cada paso
+            const isCompletedStep = index < currentStep;
+            const isCurrentStep = index === currentStep;
+            const isPendingStep = index > currentStep;
+
+            // Aplicar estilos según el estado
+            let backgroundColor, borderWidth, borderColor;
+
+            if (isCurrentStep || isCompletedStep) {
+              // Paso actual o completado: círculo verde sólido
+              backgroundColor = '#0BB589';
+              borderWidth = 0;
+              borderColor = 'transparent';
+            } else {
+              // Paso pendiente: círculo blanco con borde gris
+              backgroundColor = '#FFFFFF';
+              borderWidth = 1;
+              borderColor = '#E0E0E0';
+            }
 
             return (
               <View
@@ -51,9 +68,9 @@ export function Stepper({ steps, currentStep, className = '' }: StepperProps) {
                   width: 16,
                   height: 16,
                   borderRadius: 8,
-                  backgroundColor: isFirstStep ? '#0BB589' : '#FFFFFF',
-                  borderWidth: isFirstStep ? 0 : 1,
-                  borderColor: isFirstStep ? 'transparent' : '#E0E0E0',
+                  backgroundColor,
+                  borderWidth,
+                  borderColor,
                 }}
               />
             );
@@ -64,15 +81,23 @@ export function Stepper({ steps, currentStep, className = '' }: StepperProps) {
       {/* Títulos de los pasos */}
       <View className="flex-row justify-between mt-2">
         {steps.map((step, index) => {
-          const isFirstStep = index === 0;
+          // Determinar el estado de cada paso para el texto
+          const isCompletedStep = index < currentStep;
+          const isCurrentStep = index === currentStep;
+          const isPendingStep = index > currentStep;
+
+          // Color del texto según el estado
+          const color =
+            isCurrentStep || isCompletedStep ? '#0BB589' : '#9CA3AF';
+          const fontWeight = isCurrentStep || isCompletedStep ? '500' : '400';
 
           return (
             <Text
               key={index}
               style={{
-                color: isFirstStep ? '#0BB589' : '#9CA3AF',
+                color,
                 fontSize: 12,
-                fontWeight: isFirstStep ? '500' : '400',
+                fontWeight,
                 textAlign: 'center',
                 width: 70,
               }}

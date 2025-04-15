@@ -5,10 +5,12 @@ import { BookProgressCard } from '@/components/books';
 import { Button } from '@/components/ui';
 import { Search } from 'lucide-react-native';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { useRouter } from 'expo-router';
 
 export default function RoadmapScreen() {
   const { theme } = useTheme();
   const [activeTab, setActiveTab] = useState<'reading' | 'finished'>('reading');
+  const router = useRouter();
 
   // Datos de muestra para los libros
   const books = [
@@ -144,7 +146,7 @@ export default function RoadmapScreen() {
           {/* Botón de agregar nuevo roadmap */}
           <Button
             variant="filled"
-            onPress={() => console.log('Agregar nuevo roadmap')}
+            onPress={() => router.push('/create-roadmap')}
             className="mt-4"
           >
             Add New Roadmap

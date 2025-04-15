@@ -4,11 +4,11 @@ module.exports = {
     slug: 'bookapp-tracker',
     version: '1.0.0',
     orientation: 'portrait',
-    icon: './assets/icon.png',
+    icon: './assets/images/icon.png',
+    scheme: 'bookapp',
     splash: {
-      image: './assets/splash.png',
       resizeMode: 'contain',
-      backgroundColor: '#ffffff',
+      backgroundColor: '#0BB589',
     },
     updates: {
       fallbackToCacheTimeout: 0,
@@ -19,12 +19,12 @@ module.exports = {
     },
     android: {
       adaptiveIcon: {
-        foregroundImage: './assets/adaptive-icon.png',
+        foregroundImage: './assets/images/icon.png',
         backgroundColor: '#FFFFFF',
       },
     },
     web: {
-      favicon: './assets/favicon.png',
+      favicon: './assets/images/favicon.png',
     },
     plugins: [
       // Configuración específica para NativeWind
